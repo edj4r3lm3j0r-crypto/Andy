@@ -1,0 +1,172 @@
+/* Estilos generales */
+body {
+  background: #ffc0cb; /* Fondo rosa */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Sección inicial */
+#intro {
+  text-align: center;
+}
+.mensaje {
+  font-size: 24px;
+  color: #d63384;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+/* Sobre animado */
+.envelope-container {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  margin: 0 auto 20px;
+  cursor: pointer;
+}
+.envelope {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ff69b4;
+  border-radius: 10px;
+}
+.flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 50%;
+  background: #ff1493;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transition: transform 0.5s;
+}
+.envelope-container:hover .flap {
+  transform: translateY(-15px);
+}
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+}
+
+/* Botón Abrir */
+.boton {
+  background: #d63384;
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.boton:hover {
+  background: #b2185b;
+  transform: scale(1.05);
+}
+
+/* Sección de la carta */
+#card {
+  width: 90%;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  margin-top: 20px;
+
+  /* Para la animación inicial */
+  height: 0;
+  opacity: 0;
+  transition: height 1s ease, opacity 1s ease;
+}
+#card.open {
+  height: 80vh; /* Altura fija al abrirse */
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor del mensaje de la carta: scrollable */
+.card-message {
+  padding: 20px;
+  overflow-y: auto;
+  text-align: justify;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  flex: 1; /* Ocupa el espacio disponible */
+}
+
+/* Sección del regalo fija al final */
+.card-gift {
+  flex-shrink: 0;
+  background: #f7f7f7;
+  border-top: 1px solid #ddd;
+  cursor: pointer;
+  text-align: center;
+  padding: 15px;
+  height: 100px; /* Altura fija para que se vea completa */
+}
+.gift {
+  font-size: 48px;
+}
+.gift-text {
+  font-size: 16px;
+  color: #d63384;
+  margin-top: 10px;
+}
+/* Estilo para la imagen en la carta */
+.card-message img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.card-message span {
+  display: block;
+  text-align: right;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #888;
+  margin-bottom: 20px;
+}
+.card-message p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+.card-message .saludo {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.card-message .firma {
+  font-size: 2.5rem;
+  text-align: right;
+  color: #c91515;
+  margin: 0;
+}
+.card-message img {
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+}
+.card-message .bloque-firma {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 30px;
+}
